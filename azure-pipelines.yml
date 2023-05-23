@@ -17,5 +17,13 @@ steps:
 
 - script: |
     npm install
-    npm run build
   displayName: 'npm install and build'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Microsoft Partner Network(1)(cf32af44-8fd1-499d-8de9-eabb2432bdaa)'
+    appType: 'webAppLinux'
+    WebAppName: 'dpersonas-api'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|18-lts'
+    StartupCommand: 'npm run deploy'
