@@ -24,6 +24,7 @@ steps:
     includeRootFolder: false
     archiveType: 'zip'
     replaceExistingArchive: true
+    archiveFile: '$(Build.ArtifactStagingDirectory)/dpersonas.zip'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
@@ -31,6 +32,6 @@ steps:
     azureSubscription: 'Microsoft Partner Network(3)(cf32af44-8fd1-499d-8de9-eabb2432bdaa)'
     appType: 'webAppLinux'
     WebAppName: 'dpersonas-api'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/dpersonas.zip'
     RuntimeStack: 'NODE|18-lts'
     StartupCommand: 'npm run start'
