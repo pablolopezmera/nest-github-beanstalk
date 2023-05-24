@@ -34,4 +34,4 @@ steps:
     WebAppName: 'dpersonas-api'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     RuntimeStack: 'NODE|18-lts'
-    StartupCommand: 'npm run start:prod'
+    StartupCommand: 'npm run start'
